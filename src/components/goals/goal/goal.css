@@ -1,0 +1,26 @@
+.goal{
+    background-color: rgb(84, 145, 82);
+    margin: 8px;
+    color: aliceblue;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.goal--description{
+    font-size: 14px;
+    font-family:'Poppins', sans-serif;
+    padding: 9px;
+    max-width: 80%;
+}
+
+.goal--tick{
+    background: none;
+    border: none;
+    border-radius: 20px;
+    font-size: 30px;
+    /* color: #212529; */
+    color:  aliceblue;
+    cursor: pointer;
+}

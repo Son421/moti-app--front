@@ -1,0 +1,26 @@
+.calendar{
+    margin: 18px 4%;
+    padding: 5px;
+    border: 4px solid rgb(84, 145, 82);
+    border-radius: 5px;
+    font-size: 14px;
+    font-family:'Poppins', sans-serif;
+    color:aliceblue;
+}
+
+.calendar--year{
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.calendar--days-of-week{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(7, 11%);
+}
+
+.calendar--day{
+    display: flex;
+    flex-direction: column;
+}

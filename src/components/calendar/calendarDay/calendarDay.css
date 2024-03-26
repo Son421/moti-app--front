@@ -1,0 +1,38 @@
+.day{
+    border-radius: 5px;
+    font-family:'Poppins', sans-serif;
+    color:aliceblue;
+    font-size: 14px;
+    background-color: rgb(84, 145, 82);
+    border: none;
+    margin: 1px 0;
+    height: 24px;
+    width: 28px;
+    cursor: pointer;
+}
+
+/* rgb(209, 87, 87) red */
+
+.day:hover{
+    transition: all .20s ease-in 0s;
+    border-radius: 20px;
+    color: #212529;
+    background-color: aliceblue;
+}
+
+.current-day{
+    background-color:  rgb(144, 199, 144);
+}
+
+.day--last-month{
+    border-radius: 5px;
+    font-family:'Poppins', sans-serif;
+    color: #212529;
+    font-size: 14px;
+    background-color:  rgb(57, 92, 57);
+    border: none;
+    margin: 1px 0;
+    height: 24px;
+    width: 28px;
+    cursor: default;
+}
