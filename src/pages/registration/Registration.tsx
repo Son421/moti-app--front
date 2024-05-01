@@ -1,15 +1,16 @@
 import React from "react";
-import { GiSalamander } from "react-icons/gi";
-import {SlUser, SlUserFemale} from "react-icons/sl";
+import UserForm from "../../components/userForm/UserForm";
+import './registration.css';
 
 export default function Registration(){
 
+// if(already registeted --> button homepage){}
+
     return(
-        <div>
-            <form>
-                <input type="text" className="form--input" name="field1" placeholder="Your Name"></input>
-                
-            </form>
+        <div className="registration">
+            Welcome to Mopi, please sign up.
+            <UserForm formStyle={'sign-up'}/>
         </div>
+
     )
 }

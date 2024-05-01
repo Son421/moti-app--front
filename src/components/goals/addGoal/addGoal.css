@@ -1,0 +1,101 @@
+.addGoal__button{
+    color: rgba(240, 248, 255, 0.671);
+    font-size: 26px;
+    cursor: pointer;
+    margin: 2px 10px;
+}
+
+.addGoal__button:hover{
+    color: aliceblue;
+}
+
+.addGoal__button--open{
+    transform: rotate(90deg);
+    transition: all .20s ease-in 0s;
+}
+
+.addGoal__button--clouse{
+    transform: rotate(45deg);
+    transition: all .20s ease-in 0s;
+}
+
+.addGoal__form{
+    background-color: rgb(84, 145, 82);
+    margin: 8px;
+    color: aliceblue;
+    border-radius: 0px 20px 20px 20px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.addGoal__form_textarea--descrtiption{
+    border: none;
+    outline: none;
+    overflow: hidden;
+	resize:none;
+    border-bottom: 1px dashed  rgb(144, 199, 144);
+    background-color:  rgb(84, 145, 82);
+    color: aliceblue;
+    font-size: 14px;
+    font-family:'Poppins', sans-serif;
+    width: 300px;
+    transition: all .20s ease-in 0s;
+}
+
+.addGoal__form_input--points{
+    border: none;
+    outline: none;
+    overflow: hidden;
+	resize:none;
+    background: rgba(240, 248, 255, 0.226);
+    border-radius: 20px;
+    margin: 1% 4px;
+    padding: 0 4px;
+    width: 10%;
+    color: #212529;
+    font-family:'Poppins', sans-serif;
+}
+
+.addGoal__form--tick{
+    background: none;
+    border-radius: 20px;
+    border: 2px dashed rgba(144, 199, 144, 0.548);
+    font-size: 30px;
+    width: 40px;
+    color:  rgba(240, 248, 255, 0.747);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+}
+
+.addGoal__form--tick:hover{
+    /* background: rgba(144, 199, 144, 0.815); */
+    border: 2px solid rgba(144, 199, 144, 0.815);
+    color:  rgb(240, 248, 255);
+    transition: all .20s ease-in 0s;
+}
+
+.addGoal__form--date{
+    margin: 0 8px;
+    display: inline-block;
+    position: relative;
+    border: none;
+    border-radius: 5px;
+    background: none;
+    outline: none;
+    color: aliceblue;
+    font-family:'Poppins', sans-serif;
+}
+
+.addGoal__form--date::-webkit-calendar-picker-indicator{
+    cursor: pointer;
+    border: 2px solid aliceblue;
+    border-radius: 5px;
+}
+
+.addGoal__form--repeatable{
+    border: 2px solid #212529;
+
+}

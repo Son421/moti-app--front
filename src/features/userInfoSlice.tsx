@@ -4,7 +4,8 @@ import {RootState} from "../store";
 interface infoType {
     name: string;
     pointCounter: number;
-    pic: 'm' | 'f' | 's';
+    pic: FileList | undefined;
+    passworld: string;
 }
 
 interface userType {
@@ -15,7 +16,8 @@ const initialState: userType = {
     value: {
         name: 'aaaA',
         pointCounter: 0,
-        pic: "m",
+        pic: undefined,
+        passworld: '',
     }
 }
 
@@ -27,9 +29,8 @@ export const userInfoSlice = createSlice({
             state.value = action.payload;
             // 
         },
-        pointIncrease(state){
-            state.value.pointCounter++
-            //  
+        pointIncrease(state, action: PayloadAction<number>){
+            state.value.pointCounter = state.value.pointCounter + action.payload;
         },
         pointDecrease(state){
             state.value.pointCounter--
@@ -38,7 +39,7 @@ export const userInfoSlice = createSlice({
     }
 });
 
-export const {updateInfo } = userInfoSlice.actions;
+export const {updateInfo, pointIncrease } = userInfoSlice.actions;
 
 export const userInfo = (state: RootState) => state.userInfo.value;
 

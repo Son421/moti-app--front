@@ -1,0 +1,11 @@
+.sign-in{
+    background: #212529;
+    border-radius: 20px;
+    margin: 12px auto;
+    max-width: 500px;
+    font-size: 14px;
+    font-family:'Poppins', sans-serif;
+    text-align: center;
+    padding: 8px 24px 6px 0px;
+    color: lightgray;
+}

@@ -1,20 +1,30 @@
 import React, {useState} from "react";
 import { useAppSelector } from "../../hooks/hooks";
-import { GiSalamander } from "react-icons/gi";
-import {SlUser, SlUserFemale} from "react-icons/sl";
+import {SlUser} from "react-icons/sl";
+import { LuPencilLine } from "react-icons/lu";
 import Calendar from "../../components/calendar/Calendar";
 import Goals from "../../components/goals/Goals";
+import AddGoal from "../../components/goals/addGoal/AddGoal";
+import { NavLink } from "react-router-dom";
 import './userPage.css'
 
 export default function UserPage(){
     const user = useAppSelector(state => state.userInfo.value);
+    const [shown, setShown] = useState(true);
+
+    function showUpGoalForm(){
+        setShown(!shown);
+    }
         
     return(
         <div className="user">
-            <section >
+            <div>
+                <NavLink to={'/edit'}><button className="user_button--edit"> <LuPencilLine/> </button></NavLink>
+            </div>
+            <section>
                 <div className="user--info">
                     <div>
-                        {(user.pic == 's') ? <GiSalamander className="user--pic"/> : (user.pic == 'm')? <SlUser className="user--pic"/> : <SlUserFemale className="user--pic"/>}
+                        <SlUser className="user--pic"/>  {/* ///  */}
                     </div>
                     <div className="user--info--name">
                         {user.name}
@@ -28,6 +38,7 @@ export default function UserPage(){
                 <Calendar/>
             </section>
             <section>
+                <AddGoal shown={shown} showUpGoalForm={showUpGoalForm}/>
                 <Goals/>
             </section>
         </div>

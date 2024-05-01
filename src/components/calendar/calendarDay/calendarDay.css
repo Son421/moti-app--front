@@ -11,13 +11,17 @@
     cursor: pointer;
 }
 
-/* rgb(209, 87, 87) red */
-
 .day:hover{
     transition: all .20s ease-in 0s;
     border-radius: 20px;
     color: #212529;
     background-color: aliceblue;
+}
+
+.day:active{
+    background-color: #21252975;
+    color: aliceblue;
+    transition: none;
 }
 
 .current-day{

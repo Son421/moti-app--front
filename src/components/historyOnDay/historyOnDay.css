@@ -1,0 +1,15 @@
+.history-on-day{
+    position: fixed;
+    top: 15%;
+    right: 39%;
+    left: 39%;
+    min-width: 300px;
+    min-height: 120px;
+    background:  #212529;
+    border-radius: 15px;
+    padding: 8px;
+    color:  aliceblue;
+    border: 3px solid  aliceblue;
+    font-family:'Poppins', sans-serif;
+    text-align: center;
+}

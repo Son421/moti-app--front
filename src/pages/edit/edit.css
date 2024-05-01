@@ -1,0 +1,10 @@
+.edit{
+    color: #212529 ;
+    background: rgb(84, 145, 82);
+    border-radius: 20px;
+    margin: 12px auto;
+    max-width: 500px;
+    font-size: 14px;
+    font-family:'Poppins', sans-serif;
+    padding: 4px;
+}

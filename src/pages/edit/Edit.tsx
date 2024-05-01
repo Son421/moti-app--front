@@ -1,15 +1,20 @@
-import React from "react";
-import { GiSalamander } from "react-icons/gi";
-import {SlUser, SlUserFemale} from "react-icons/sl";
+import React, {useState} from "react";
+import './edit.css';
+import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
+import UserForm from "../../components/userForm/UserForm";
 
 export default function Edit(){
+    const user = useAppSelector(state => state.userInfo.value);
+    const [newInfo, setNewInfo] = useState({
+        name: user.name,
+        pic: user.pic,
+        passworld: user.passworld,
+    });
+
 
     return(
-        <div>
-            <form>
-                <input type="text" className="form--input" name="field1" placeholder="Your Name"></input>
-                
-            </form>
+        <div className="edit">
+            <UserForm formStyle={`edit`}/>
         </div>
     )
 }
