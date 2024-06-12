@@ -1,31 +1,43 @@
 import React, {useState, useEffect} from "react";
 import { AiOutlineClear } from "react-icons/ai";
 import HistoryItem from "../../components/historyItem/HistoryItem";
+import constants from "../../components/constants";
 import './history.css'
 
 export default function History(){
-    const [goalHistoryArr, setgoalHistoryArr] = useState<any[]>([]); //
+    const [completedGoal, setCompletedGoal] = useState<any[]>([]);
 
     useEffect(() =>{
-        const historyItem = localStorage.getItem('goalsHistory');
-            if(typeof historyItem === "string"){
-                const goalHistory = goalHistoryArr.concat(JSON.parse(historyItem));
-                setgoalHistoryArr(goalHistory);
-            }
+        fetch(constants.url)
+        .then(res => res.json())
+        .then(data => {
+            setCompletedGoal(data);
+        })
+    .catch(error => {
+        console.error('Error:', error);
+    });
     }, []);
 
-    useEffect(() =>{
-        localStorage.setItem('goalsHistory', JSON.stringify(goalHistoryArr));
-    }, [goalHistoryArr]);
-
     function cleanHistory(){
-        setgoalHistoryArr([]);
-
+        fetch(constants.url)
+        .then(res => res.json())
+        .then(data => {
+            setCompletedGoal(data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
     }
 
-    function removeComletedGoal(id: number){
-        const newHisrory = goalHistoryArr.filter( item => item.id !== id); // 
-        setgoalHistoryArr(newHisrory);
+    function removeComletedGoal(_id: string){
+        fetch(constants.url)
+        .then(res => res.json())
+        .then(data => {
+            setCompletedGoal(data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });   
     }
 
     return(
@@ -35,7 +47,7 @@ export default function History(){
                 <button onClick={cleanHistory} className={`history--list_button `}> <AiOutlineClear/> </button>
             </div>
             <section>
-                {goalHistoryArr.map((elem) =>(
+                {completedGoal.map((elem) =>(
                     <div>
                         <HistoryItem completedGoal={elem} removeComletedGoal={removeComletedGoal}/>
                     </div>

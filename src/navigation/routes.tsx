@@ -9,9 +9,8 @@ export default () => (
     <Routes>
         <Route path="/user/" element={<UserPage/>}/>
         <Route path="/history" element={<History/>}/>
-        <Route path="/" element={<Registration/>}/>
+        <Route path="/" element={<Registration/>}/> {/*create a guest page*/} 
         <Route path="/login" element={<Login/>}/>
         <Route path="/edit" element={<Edit/>}/>
     </Routes>
 );
-

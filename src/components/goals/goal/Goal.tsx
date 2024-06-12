@@ -12,10 +12,10 @@ interface goalType{
         deadline: string;
         repeatable: boolean;
         executionDate: number;
-        id: number;
+        _id: string;
     }
-    deleteGoal(id: number): void
-    completeGoal(id: number): void
+    deleteGoal(_id: string): void
+    completeGoal(_id: string): void
 }
 
 export default function Goal(props: goalType){
@@ -24,15 +24,15 @@ export default function Goal(props: goalType){
     function addPoints(){
         dispatch(pointIncrease(props.goal.points));
 
-        props.completeGoal(props.goal.id);
+        props.completeGoal(props.goal._id);
 
         if(!props.goal.repeatable){
-            props.deleteGoal(props.goal.id);
+            props.deleteGoal(props.goal._id);
         }
     }
 
     function remove(){
-        props.deleteGoal(props.goal.id);
+        props.deleteGoal(props.goal._id);
     }
     
     return(

@@ -1,51 +1,58 @@
 import React, {useState, useEffect} from "react";
 import Goal from "./goal/Goal";
+import constants from "../constants";
 
 export default function Goals(){
-    const [goalsArr, setGoalArr] = useState([{
-        description: 'I should clean toilet sdfsd fdsf ds sfdsf ds  fdsf vsddv sdf vsddddddddddddddsv svsd',
-        points: 10,
-        mulct: 0,
-        deadline: '-',
-        repeatable: true,
-        executionDate: 0,
-        id: 1
-    },
-    {
-        description: 'I should ',
-        points: 10,
-        mulct: 0,
-        deadline: '-',
-        repeatable: false,
-        executionDate: 0,
-        id: 2
-    }]);
+    const [goalsArr, setGoalArr] = useState<any[]>([]);
 
-    const [completedGoals, setCompetedGoals] = useState<any[]>([]);
+    const [completedGoals, setCompetedGoals] = useState<any>();
 
-    useEffect(() => {
-        const goalItem = localStorage.getItem('goalsHistory');
-        if(goalItem){
-            const goalHistory = completedGoals.concat(JSON.parse(goalItem));
-            setCompetedGoals(goalHistory);
-        }
+    useEffect(() =>{
+        fetch(constants.url)
+            .then(res => res.json())
+            .then(data => {
+            setGoalArr(data);
+            })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     }, []);
 
     useEffect(() =>{
-        localStorage.setItem('goalsHistory', JSON.stringify(completedGoals));
+        fetch(constants.url ,{
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({completedGoals}),
+        })
+        .then(res => {
+            if (!res.ok) {
+              throw new Error('Network response error');
+            }
+            return res.json();
+          })
+        .catch(error =>{
+            console.error('Error:', error);
+        })
     }, [completedGoals]);
 
-    function deleteGoal(id: number){
-        const newArr = goalsArr.filter(item => item.id !== id);
-        setGoalArr(newArr);
+    function deleteGoal(_id: string){
+        fetch(constants.url)
+        .then(res => res.json())
+        .then(data => {
+            setCompetedGoals(data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });   
     }
 
-    function completeGoal(id: number){
-        const item = goalsArr.find(elem => elem.id == id);
+    function completeGoal(_id: string){
+        const item = goalsArr.find(elem => elem._id == _id);
         if(item){
             item.executionDate = Date.now();
-            const completedGoalsArr = completedGoals.concat(item);
-            setCompetedGoals(completedGoalsArr);
+            setCompetedGoals(item);
         }
     }
 

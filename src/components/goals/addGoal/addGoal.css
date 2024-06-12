@@ -71,7 +71,6 @@
 }
 
 .addGoal__form--tick:hover{
-    /* background: rgba(144, 199, 144, 0.815); */
     border: 2px solid rgba(144, 199, 144, 0.815);
     color:  rgb(240, 248, 255);
     transition: all .20s ease-in 0s;

@@ -54,36 +54,40 @@ export default function Calendar(){
                 {currentMonthString} {currentYear}
             </span>
             <section>
-                <div className="calendar--days-of-week">    
-                    <div>
-                        Mon
-                    </div>
-                    <div>
-                        Tue
-                    </div>
-                    <div>
-                        Wed
-                    </div>
-                    <div>
-                        Thu
-                    </div>
-                    <div>
-                        Fri
-                    </div>
-                    <div>
-                        Sat
-                    </div>
-                    <div>
-                        Sun
-                    </div>
-                </div>
-                <div className="calendar--days-of-week">
-                    {[1,2,3,4,5,6,0].map((day) =>
-                        <div className="calendar--day">
-                            <DayOfWeek currentYear={currentYear} currentMonth={currentMonth} dayOfWeek={day}/>
+                {/* <div> <TiChevronLeft/> </div> */}
+                <section>
+                    <div className="calendar--days-of-week">    
+                        <div>
+                            Mon
                         </div>
-                    )}
-                </div>
+                        <div>
+                            Tue
+                        </div>
+                        <div>
+                            Wed
+                        </div>
+                        <div>
+                            Thu
+                        </div>
+                        <div>
+                            Fri
+                        </div>
+                        <div>
+                            Sat
+                        </div>
+                        <div>
+                            Sun
+                        </div>
+                    </div>
+                    <div className="calendar--days-of-week">
+                        {[1,2,3,4,5,6,0].map((day) =>
+                            <div className="calendar--day">
+                                <DayOfWeek currentYear={currentYear} currentMonth={currentMonth} dayOfWeek={day}/>
+                            </div>
+                        )}
+                    </div>
+                </section>
+                    {/* <div> <TiChevronRight/> </div> */}
             </section>
         </div>
     )

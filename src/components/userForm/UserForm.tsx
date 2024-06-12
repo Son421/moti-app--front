@@ -1,22 +1,36 @@
 import React, {useState} from "react";
 import {TiTick} from "react-icons/ti";
+import constants from "../constants";
 import './userForm.css';
 
-export default function UserForm(props: {formStyle: string}){
+export default function UserForm(props: {formStyle: string, url: string, sendForm(formInfo: any): void}){
+    const [userInfo, setUserInfo] = useState({
+        name: '',
+        email: '',
+        password: ''
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>{
+        const value = e.target.value;
+        setUserInfo({
+            ...userInfo,
+            [e.target.name]: value
+        });
+    }
+
+    function sendForm(){
+      props.sendForm(userInfo);
+    }
     
     return(
         <div>
-            <form className={`user-form__form ${props.formStyle}`}>
+            <form className={`user-form__form ${props.formStyle}`}  onSubmit={(e) => e.preventDefault()}>
                 <ul>
-                    <li><input type="text" className={`user-form__form_input ${props.formStyle}`} name="userName" placeholder="Your name"></input></li>
-                    <li><input type="mail" className={`user-form__form_input`} name="userMail" placeholder="Your mail"></input></li>
-                    <li><input type="password" className={`user-form__form_input`} name="userPassworld" placeholder="Your password"></input></li>
-                    <li> <label  className={`user-form__form_input_label ${props.formStyle}`}>Choose a profile picture:
-                            <input type="file" id="avatar" className={`user-form__form_input_file ${props.formStyle}`} name="avatar" accept=".png, .jpeg, .jpg" /> 
-                        </label>
-                    </li>
+                    <li><input onChange={handleChange} type="text" className={`user-form__form_input ${props.formStyle}`} name="name" placeholder="Your name"></input></li>
+                    <li><input onChange={handleChange} type="email" className={`user-form__form_input`} name="userMail" placeholder="email"></input></li>
+                    <li><input onChange={handleChange} type="password" className={`user-form__form_input`} name="password" placeholder="Your password"></input></li>
                 </ul>
-                <button className={`user-form__form_button`}> <TiTick className={`user-form__form_button--tick `}/> </button>
+                <button onClick={sendForm} className={`user-form__form_button`}> <TiTick className={`user-form__form_button--tick `}/> </button>
             </form>
         </div>
     )

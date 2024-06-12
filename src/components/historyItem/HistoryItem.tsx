@@ -9,14 +9,14 @@ interface goal{
     deadline: string;
     repeatable: boolean;
     executionDate: number;
-    id: number;
+    _id: string;
 }
 
-export default function HistoryItem(props: {completedGoal: goal, removeComletedGoal(id: number): void}){ 
+export default function HistoryItem(props: {completedGoal: goal, removeComletedGoal(id: string): void}){ 
     const exDate = new Date(props.completedGoal.executionDate); 
 
     function remove(){
-        props.removeComletedGoal(props.completedGoal.id) // say id no
+        props.removeComletedGoal(props.completedGoal._id);
     }
 
     return(
