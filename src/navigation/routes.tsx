@@ -1,16 +1,21 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import UserPage from "../pages/userPage/UserPage";
 import Registration from "../pages/registration/Registration";
 import Login from "../pages/login/Login";
 import History from "../pages/history/History";
-import Edit from "../pages/edit/Edit";
+import GuestPage from "../pages/guestPage/GuestPage";
+import useAuth from "../hooks/useAuth";
 
-export default () => (
-    <Routes>
-        <Route path="/user/" element={<UserPage/>}/>
-        <Route path="/history" element={<History/>}/>
-        <Route path="/" element={<Registration/>}/> {/*create a guest page*/} 
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/edit" element={<Edit/>}/>
-    </Routes>
-);
+export default () => {
+    const { isAuthenticated, userInfo } = useAuth();
+
+    return(
+        <Routes>
+            <Route path="/user/:_id" element={isAuthenticated ? <UserPage userInfo={userInfo} /> : <Navigate to="/" />}/>
+            <Route path="/history/:_id" element={isAuthenticated ? <History/> : <Navigate to="/" />}/>
+            <Route path="/register" element={<Registration/>}/> 
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/" element={isAuthenticated ? <Navigate to={`/user/${userInfo._id}`}/> :  <GuestPage/>}/>
+        </Routes>
+    );
+}

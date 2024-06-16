@@ -1,45 +1,49 @@
 import React, {useState} from "react";
-import { useAppSelector } from "../../hooks/hooks";
 import {SlUser} from "react-icons/sl";
-import { LuPencilLine } from "react-icons/lu";
 import Calendar from "../../components/calendar/Calendar";
 import Goals from "../../components/goals/Goals";
 import AddGoal from "../../components/goals/addGoal/AddGoal";
-import { NavLink } from "react-router-dom";
+
 import './userPage.css'
 
-export default function UserPage(){
-    const user = useAppSelector(state => state.userInfo.value);
+export default function UserPage({ userInfo }: { userInfo: any }){
     const [shown, setShown] = useState(true);
+    const [addNewGoal, setAddNewGoal] = useState(false);
+    const [pointCounter, setPointCounter] = useState(userInfo.pointCounter)
+    
+    function countPoints(data: number){
+        setPointCounter(data);
+    }
 
     function showUpGoalForm(){
         setShown(!shown);
     }
+
+    function newGoal(){
+        setAddNewGoal(!addNewGoal);
+    }
         
     return(
         <div className="user">
-            <div>
-                <NavLink to={'/edit'}><button className="user_button--edit"> <LuPencilLine/> </button></NavLink>
-            </div>
             <section>
                 <div className="user--info">
                     <div>
-                        <SlUser className="user--pic"/>  {/* ///  */}
+                        <SlUser className="user--pic"/> 
                     </div>
                     <div className="user--info--name">
-                        {user.name}
+                        {userInfo.name}
                     </div>
                 </div>
                 <div className="user--info--counter">
-                    <span> {user.pointCounter} </span>
+                    <span> {pointCounter} </span>
                 </div>
             </section>
             <section>
                 <Calendar/>
             </section>
             <section>
-                <AddGoal shown={shown} showUpGoalForm={showUpGoalForm}/>
-                <Goals/>
+                <AddGoal shown={shown} showUpGoalForm={showUpGoalForm} userId={userInfo._id} newGoal={newGoal}/>
+                <Goals addNewGoal={addNewGoal} countPoints={countPoints}/>
             </section>
         </div>
     )

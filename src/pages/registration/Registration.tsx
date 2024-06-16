@@ -4,32 +4,34 @@ import constants from "../../components/constants";
 import './registration.css';
 
 export default function Registration(){
-    const url = constants.url
 
     function sendForm(formInfo: any){
-        fetch(constants.url ,{
+        fetch(`${constants.url}/register` ,{
             method: 'POST',
             headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({formInfo}),
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formInfo),
         })
         .then(res => {
             if (!res.ok) {
-              throw new Error('Network response error');
+                throw new Error('Network response error');
             }
             return res.json();
-          })
+        })
+        .then(data => {
+            console.log('Success:', data);
+        })
         .catch(error =>{
             console.error('Error:', error);
-        })
+            alert('An error occurred while registering. Please try again later.');
+        });
     }
-
-    // if(already registeted --> button homepage){}
+    
     return(
         <div className="registration">
-            Welcome to Mopi, please sign up.
-            <UserForm formStyle={'sign-up'} url={url} sendForm={sendForm}/>
+            <span>Welcome to Mopi, please sign up.</span>
+            <UserForm formStyle={'sign-up'} sendForm={sendForm}/>
         </div>
 
     )

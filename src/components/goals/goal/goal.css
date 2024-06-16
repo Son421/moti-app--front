@@ -53,6 +53,15 @@
     padding: 0 4px;
 }
 
+.goal--mulct{
+    display: flex;
+    align-items: center;
+    background: rgba(170, 18, 79, 0.24);
+    border-radius: 20px;
+    margin: 1% 3px;
+    padding: 0 4px;
+}
+
 .goal--reteate{
     padding: 4px 4px 0px 0px;
     color:  rgba(240, 248, 255, 0.541);

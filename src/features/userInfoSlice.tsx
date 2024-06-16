@@ -4,7 +4,6 @@ import {RootState} from "../store";
 interface infoType {
     name: string;
     pointCounter: number;
-    pic: FileList | undefined;
     passworld: string;
 }
 
@@ -14,9 +13,8 @@ interface userType {
 
 const initialState: userType = {
     value: {
-        name: 'aaaA',
+        name: '',
         pointCounter: 0,
-        pic: undefined,
         passworld: '',
     }
 }

@@ -21,14 +21,20 @@ export default function CalendarDay(props: { day: Date}){
         if (popup && !popup.contains(target)) {
             setdayHistoryOpen(false);
         }
-    } ///// 
+    }
+
+    function closePopup(){
+        setdayHistoryOpen(false);
+    }
+
+    
 
     if(dayHistoryOpen){
         return(
             <div onClick={handleClick}>
                 <button className={currentMon !== month ? 'day--last-month' : day == currentDay ? 'day current-day': 'day'} > {day} </button>
                 <div id="popup">
-                    <HistoryOnDay dateHistory={props.day}/> 
+                    <HistoryOnDay dateHistory={props.day} closePopup={closePopup}/> 
                 </div>
             </div>
         )
