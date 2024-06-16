@@ -1,0 +1,45 @@
+.history--list{
+    background: #212529;
+    border-radius: 20px;
+    margin: 12px auto;
+    max-width: 500px;
+    font-size: 16px;
+    font-family:'Poppins', sans-serif;
+    padding: 4px;
+    color: aliceblue;
+}
+
+.history--list_button{
+    color: rgba(240, 248, 255, 0.774);
+    font-size: 26px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: all .20s ease-in-out 0s;
+}
+
+.history--list_button:hover{
+    color: aliceblue;
+}
+
+.history--list_button:active {
+    animation: .2s linear 0s 1 alternate clean;
+}
+
+.history--list_wrapper{
+    display: flex;
+    justify-content: space-around;
+    padding: 4px;
+}
+
+@keyframes clean{
+    0%{
+        transform: rotate(-15deg);
+    }
+    50%{
+        transform: rotate(15deg);
+    }
+    100%{
+        transform: rotate(0);
+    }
+}

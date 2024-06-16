@@ -1,0 +1,58 @@
+.user{
+    background: #212529;
+    border-radius: 20px;
+    margin: 12px auto;
+    max-width: 500px;
+    font-size: 14px;
+    font-family:'Poppins', sans-serif;
+    padding: 4px;
+}
+
+.user_button--edit{
+    font-size: 20px;
+    background: none;
+    border-radius: 15px;
+    box-shadow: none;
+    border: 2px solid rgba(84, 145, 82, 0.712);
+    cursor: pointer;
+    padding: 4px;
+    margin: 4px 8px;
+    text-align: center;
+    color: rgb(84, 145, 82);
+}
+
+.user_button--edit:hover{
+    border: 2px solid rgba(84, 145, 82, 0.849);
+    color: rgb(98, 168, 96);
+}
+
+.user--info{
+    background: #212529;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.user--pic{
+    font-size: 50px;
+    margin: 14px;
+    background: #212529;
+    color: rgb(84, 145, 82);
+    border-radius: 40px;
+}
+
+.user--info--name{
+    margin-top: 24px;
+    color: rgb(84, 145, 82);
+}
+
+.user--info--counter{
+    border-radius: 20px;
+    margin: 12px auto;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(95, 168, 92);
+    color: #212529;
+    padding: 4px;
+    max-width: 40%;
+}

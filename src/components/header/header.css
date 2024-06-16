@@ -1,10 +1,10 @@
 li{
     list-style: none;
+    color: rgb(84, 145, 82);
 }
 
 .header--line{
     background: #212529;
-    color: rgb(84, 145, 82);
 }
 
 .header--line__wrapper{
@@ -18,6 +18,7 @@ li{
     font-size: 24px;
     cursor: pointer;
     padding: 5px;
+    color: rgb(84, 145, 82);
 }
 
 .header--line--icon:hover{

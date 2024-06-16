@@ -1,0 +1,11 @@
+.guest-page{
+    background: #212529;
+    border-radius: 20px;
+    margin: 12px auto;
+    max-width: 500px;
+    font-size: 18px;
+    font-family:'Poppins', sans-serif;
+    padding: 4px;
+    text-align: center;
+    color: rgb(84, 145, 82);
+}

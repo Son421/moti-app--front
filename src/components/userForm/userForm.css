@@ -1,0 +1,92 @@
+.user-form__form{
+    background: #212529;
+    border-radius: 20px;
+    font-size: 14px;
+    font-family:'Poppins', sans-serif;
+    padding: 4px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*  sign-up */
+
+.user-form__form_input{
+    font-family:'Poppins', sans-serif;
+    border: none;
+    outline: none;
+    overflow: hidden;
+	resize:none;
+    background: rgba(240, 248, 255, 0.226);
+    border-radius: 20px;
+    margin: 6px;
+    padding: 4px;
+    width: 80%;
+    color: #212529;
+}
+
+.user-form__form .sign-in{
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.user-form__form_input_label{
+    color: gray;
+    font-family:'Poppins', sans-serif;
+    margin: 4px;
+}
+
+.user-form__form_input_label .sign-in{
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.user-form__form_input_file{
+    color: gray;
+    font-family:'Poppins', sans-serif;
+    margin: 4px;
+}
+
+.user-form__form_input_file .sign-in{
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.user-form__form_button{
+    border-radius: 15px;
+    border: 2px solid rgba(240, 248, 255, 0.226);
+    background: none;
+    padding: 3px 6px;
+    font-size: 24px;
+    color: gray;
+    cursor: pointer;
+    margin: 4px;
+    display: flex;
+    align-self: flex-end;
+}
+
+.user-form__form_button:hover{
+    box-shadow: inset -2px -2px rgba(240, 248, 255, 0.226);
+    color: rgb(153, 153, 153);
+    transition: all .15s ease-in 0s;
+}
+
+.user-form__form_button:hover > .user-form__form_button--tick{
+    transform: rotate(7deg);
+    transition: all .15s ease-in 0s;
+}   
+
+.user-form__form_button:active{
+    box-shadow: inset 2px 2px rgba(240, 248, 255, 0.226);
+    transition: none;
+}
+
+.user-form__form_button:active  > .user-form__form_button--tick{
+    transform: rotate(7deg) translate(1px);
+    transition: none;
+}

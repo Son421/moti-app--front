@@ -1,0 +1,42 @@
+.history-item{
+    color: #212529;
+    background-color:aliceblue;
+    font-family:'Poppins', sans-serif;
+    border-radius: 5px 5px 0px 0px;
+    display: flex;
+    justify-content: space-around;
+    margin: 4px 14px 0px 14px;
+}
+
+.history-item--description{
+    width: 80%;
+}
+
+.history-item--points{
+    display: flex;
+    align-items: center;
+}
+
+.history-item--delete{
+    background: none;
+    border: none;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.history-item--delete:hover{
+    color: #2125298e;
+    transition: all .20s ease-in 0s;
+}
+
+.history-item--time{
+    background-color: aliceblue;
+    color: #212529;
+    border-radius: 0px 0px 5px 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 4px 10%;
+    margin: 0px 14px 8px 14px;
+}
