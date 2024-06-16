@@ -1,2 +1,2 @@
-const url = 'http://localhost:8080/api'
+const url = 'https://moti-app.onrender.com/api/'
 export default {url};
