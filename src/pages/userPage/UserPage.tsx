@@ -3,13 +3,16 @@ import {SlUser} from "react-icons/sl";
 import Calendar from "../../components/calendar/Calendar";
 import Goals from "../../components/goals/Goals";
 import AddGoal from "../../components/goals/addGoal/AddGoal";
+import Header from "../../components/header/Header";
+import useAuth from "../../hooks/useAuth";
 
 import './userPage.css'
 
 export default function UserPage({ userInfo }: { userInfo: any }){
     const [shown, setShown] = useState(true);
     const [addNewGoal, setAddNewGoal] = useState(false);
-    const [pointCounter, setPointCounter] = useState(userInfo.pointCounter)
+    const [pointCounter, setPointCounter] = useState(userInfo.pointCounter);
+    const {isAuthenticated} = useAuth();
     
     function countPoints(data: number){
         setPointCounter(data);
@@ -24,7 +27,9 @@ export default function UserPage({ userInfo }: { userInfo: any }){
     }
         
     return(
-        <div className="user">
+        <div>
+            <Header isAuth={isAuthenticated}/>
+            <div className="user">
             <section>
                 <div className="user--info">
                     <div>
@@ -46,5 +51,7 @@ export default function UserPage({ userInfo }: { userInfo: any }){
                 <Goals addNewGoal={addNewGoal} countPoints={countPoints}/>
             </section>
         </div>
+        </div>
+        
     )
 }
