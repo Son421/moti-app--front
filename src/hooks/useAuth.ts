@@ -6,11 +6,16 @@ function useAuth() {
     const [userInfo, setUserInfo] = useState<any>();
 
     useEffect(() => {
+        upgrToken();
+    }, []);
+
+    const upgrToken = () => {
+        console.log('trying to fetch customer data')
         const token = localStorage.getItem('token');
         if (token) {
             fetchUserInfo(token);
         }
-    }, []);
+    }
 
     const fetchUserInfo = async (token: any) => {
         try {
@@ -38,10 +43,13 @@ function useAuth() {
         localStorage.removeItem('token');
         setIsAuthenticated(false);
         setUserInfo(null);
-        window.location.reload();
     };
 
-    return { isAuthenticated, userInfo, logout };
+    const upgrade = () => {
+        setIsAuthenticated(true);
+    }
+
+    return { isAuthenticated, userInfo, logout, upgrToken, upgrade};
 }
 
 export default useAuth;

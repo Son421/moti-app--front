@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from "react";
 import { AiOutlineClear } from "react-icons/ai";
+import useAuth from "../../hooks/useAuth";
+import Header from "../../components/header/Header";
 import HistoryItem from "../../components/historyItem/HistoryItem";
 import constants from "../../components/constants";
 import './history.css'
 
 export default function History(){
     const [completedGoal, setCompletedGoal] = useState<any[]>([]);
+    const {isAuthenticated} = useAuth();
 
     useEffect(() => {
         fetchData();
@@ -72,18 +75,21 @@ export default function History(){
     }
 
     return(
-        <div className="history--list">
-            <div className="history--list_wrapper">
-                <span>History</span>
-                <button onClick={cleanHistory} className={`history--list_button `}> <AiOutlineClear/> </button>
+        <div>
+            <Header isAuth={isAuthenticated}/>
+            <div className="history--list">
+                <div className="history--list_wrapper">
+                    <span>History</span>
+                    <button onClick={cleanHistory} className={`history--list_button `}> <AiOutlineClear/> </button>
+                </div>
+                <section>
+                    {completedGoal.map((elem) =>(
+                        <div>
+                            <HistoryItem completedGoal={elem} removeComletedGoal={removeCompletedGoal}/>
+                        </div>
+                    ))}
+                </section>
             </div>
-            <section>
-                {completedGoal.map((elem) =>(
-                    <div>
-                        <HistoryItem completedGoal={elem} removeComletedGoal={removeCompletedGoal}/>
-                    </div>
-                ))}
-            </section>
         </div>
     )
 }
