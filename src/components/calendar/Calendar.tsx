@@ -54,7 +54,6 @@ export default function Calendar(){
                 {currentMonthString} {currentYear}
             </span>
             <section>
-                {/* <div> <TiChevronLeft/> </div> */}
                 <section>
                     <div className="calendar--days-of-week">    
                         <div>
@@ -87,7 +86,6 @@ export default function Calendar(){
                         )}
                     </div>
                 </section>
-                    {/* <div> <TiChevronRight/> </div> */}
             </section>
         </div>
     )
