@@ -51,7 +51,7 @@ export default function Login(){
             {success ? (
                 <div>
                     <p className="success-message">Login successful!</p>
-                    <div> <button onClick={toUserPage}> poop </button> </div>
+                    <div> <button className="sign-in_button" onClick={toUserPage}> User page </button> </div>
                 </div>
             ) : (
                 <UserForm formStyle={'sign-in'} sendForm={sendForm}/>
